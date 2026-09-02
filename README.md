@@ -1,16 +1,16 @@
-# 🐘 MACONFLIC — Elephant Vocalization Detection: Project Status Report
+# 🐘 Analysis of Elephant Acoustic Communication Signals to Mitigate Human–Animal Conflict Using AI & ML Techniques
 
 **Date:** 2 September 2026  
-**Project:** AI-Based Elephant Vocalization Detection & Acoustic Analysis  
-**Problem Statement:** *"To develop an AI-based system for detecting elephant vocalizations from acoustic recordings and analysing their acoustic characteristics."*
+**Project:** Analysis of Elephant Acoustic Communication Signals to Mitigate Human–Animal Conflict Using AI & ML Techniques  
+**Problem Statement:** *"To develop an AI-based acoustic analysis system for detecting and classifying elephant vocalizations from publicly available acoustic recordings and to analyse their acoustic characteristics under varying noise conditions and recording distances."*
 
 ---
 
 ## 1. Project Overview
 
-This project builds an end-to-end AI pipeline for detecting and classifying elephant vocalizations from audio recordings. The system classifies audio clips into **4 classes** — **Roar**, **Rumble**, **Trumpet**, and **Non-Elephant** (background noise) — using Convolutional Neural Networks (CNNs) trained on Mel-spectrogram features.
+This project builds an end-to-end AI pipeline for detecting and classifying elephant vocalizations from publicly available acoustic recordings. The system classifies audio clips into **4 classes** — **Roar**, **Rumble**, **Trumpet**, and **Non-Elephant** (background noise) — using Convolutional Neural Networks (CNNs) trained on Mel-spectrogram features. It also analyses acoustic characteristics under varying noise conditions and recording distances to support human–animal conflict mitigation.
 
-The project is purely software-based and focuses on acoustic signal detection and characteristic analysis. It does not attempt multimodal semantic-analysis or claim to "translate" elephant language.
+The project is purely software-based and focuses on acoustic signal detection, classification, and characteristic analysis under real-world conditions (noise robustness and distance attenuation). It does not attempt multimodal semantic-analysis or claim to "translate" elephant language.
 
 ---
 
