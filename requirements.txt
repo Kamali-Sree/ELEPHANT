@@ -12,3 +12,7 @@ seaborn
 requests
 tqdm
 scipy
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic
