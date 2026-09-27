@@ -26,9 +26,9 @@ The project has evolved into a modern, production-grade Web Application with thr
 
 ### A. AI / Machine Learning Layer (PyTorch)
 - **Model Architecture:** We upgraded to an **SE-CNN (Squeeze-and-Excitation CNN)**. This is a 4-block Convolutional Neural Network with an SE-Attention mechanism. The attention block allows the AI to focus on important audio frequencies (like low rumbles) while ignoring background forest noise.
-- **Input:** 128-band Log-Mel Spectrograms (16,000 Hz, 6.0s clips).
+- **Infrasound & Acoustic Analysis:** Elephants heavily use **infrasound** (ultra-low frequencies below human hearing, often 14Hz–35Hz) for long-distance communication. Our system analyzes these sub-audible infrasonic rumbles, as well as audible roars and trumpets, by generating high-resolution 128-band Log-Mel Spectrograms (16,000 Hz, 6.0s clips).
 - **Output:** 4 Classes (Roar, Rumble, Trumpet, Non-Elephant).
-- **Explainability:** We integrated **Grad-CAM** (Gradient-weighted Class Activation Mapping) which generates visual heatmaps of the spectrograms, allowing researchers to see *why* the AI made its decision.
+- **Explainability:** We integrated **Grad-CAM** (Gradient-weighted Class Activation Mapping) which generates visual heatmaps of the spectrograms, allowing researchers to see *why* the AI made its decision (e.g., highlighting the specific infrasound bands it detected).
 
 ### B. Backend Server Layer (FastAPI & SQLite)
 - **Framework:** Python FastAPI.
