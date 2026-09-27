@@ -56,7 +56,20 @@ To demonstrate how the system works in a real-world scenario with physical micro
 
 ---
 
-## 4. How to Run the Platform
+## 4. Dataset & Models Download
+
+> **Note:** The complete audio dataset and trained model weights total over 2.1 GB and are not included directly in this GitHub repository due to size limits.
+
+To run the AI models locally, please download the dataset and models from our cloud storage:
+- [**Download Dataset & Models (Google Drive / Hugging Face)**](#) *(Replace this # with your actual download link after uploading)*
+
+Once downloaded, extract the contents and place them in the following directories in the project root:
+- `/data/` (for audio files)
+- `/models/` (for `.pth` model weights)
+
+---
+
+## 5. How to Run the Platform
 
 ### Step 1: Start the Backend (FastAPI)
 ```bash
@@ -82,7 +95,7 @@ python scripts/sensor_simulator.py
 
 ---
 
-## 5. Summary of Major Updates for Final Year Presentation
+## 6. Summary of Major Updates for Final Year Presentation
 
 1. **Moved from a simple Streamlit script to a Full-Stack Web Application.** (Next.js + FastAPI).
 2. **Upgraded the AI Model** to include SE-Attention mechanisms and Grad-CAM explainability for higher accuracy and scientific transparency.
