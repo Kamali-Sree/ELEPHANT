@@ -247,7 +247,7 @@ def train_model_v2(data_path, epochs=30, batch_size=32, lr=0.001,
             epochs_without_improvement += 1
 
         # ─── Logging ───
-        marker = " ★ BEST" if is_best else ""
+        marker = " * BEST" if is_best else ""
         print(f"  Epoch {epoch+1:02d}/{epochs} | "
           f"LR: {current_lr:.1e} | "
           f"Train - Loss: {train_loss:.4f}, Acc: {train_acc:.2f}% | "
@@ -255,7 +255,7 @@ def train_model_v2(data_path, epochs=30, batch_size=32, lr=0.001,
 
         # ─── Early Stopping ───
         if epochs_without_improvement >= patience:
-            print(f"\n  ⚠ Early stopping triggered after {epoch+1} epochs "
+            print(f"\n  ! Early stopping triggered after {epoch+1} epochs "
                   f"(no improvement for {patience} epochs)")
             break
 

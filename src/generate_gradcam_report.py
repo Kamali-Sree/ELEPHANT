@@ -92,6 +92,11 @@ def generate_report(csv_path=None, model_path=None, num_samples_per_class=1):
     print("\n[2/4] Selecting representative samples...")
     df = pd.read_csv(csv_path)
     test_df = df[df['split'] == 'test']
+    
+    # Fallback to validation set if test set is empty
+    if len(test_df) == 0:
+        print("  ⚠ Test set is empty, falling back to 'validate' split")
+        test_df = df[df['split'] == 'validate']
 
     # Try to use original (non-augmented) samples first for cleaner visualisation
     if 'source' in test_df.columns:

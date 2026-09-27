@@ -32,6 +32,7 @@ class ElephantAcousticDataset(Dataset):
         self.feature_type = feature_type
         self.target_sr = target_sr
         self.duration = duration
+        self.split = split
         
         # 4-class Classification
         self.label_map = {
@@ -52,6 +53,17 @@ class ElephantAcousticDataset(Dataset):
         
         # Load and normalise audio
         y = load_and_pad_audio(filepath, sr=self.target_sr, duration=self.duration)
+        
+        # Data Augmentation during training
+        if self.split == 'train':
+            # Add random white noise
+            if np.random.rand() < 0.5:
+                noise_amp = 0.005 * np.random.uniform() * np.amax(y)
+                y = y + noise_amp * np.random.normal(size=y.shape[0])
+            # Random slight pitch shift
+            if np.random.rand() < 0.5:
+                n_steps = np.random.uniform(-1.5, 1.5)
+                y = librosa.effects.pitch_shift(y, sr=self.target_sr, n_steps=n_steps)
             
         # Extract features
         if self.feature_type == 'mel':
