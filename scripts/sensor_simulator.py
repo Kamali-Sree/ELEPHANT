@@ -31,10 +31,10 @@ def generate_random_incident():
         "longitude": round(lng, 5),
         "species": "Elephant",
         "call_type": call,
-        "severity": severity,
         "confidence": round(conf, 3),
         "reporter_name": f"Acoustic Sensor #{random.randint(100, 999)}",
-        "description": "Auto-detected by remote acoustic sensor."
+        "description": "Auto-detected by remote acoustic sensor.",
+        "source": "IOT_SENSOR"
     }
 
 print("=======================================")

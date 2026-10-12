@@ -1,0 +1,193 @@
+[
+  {
+    "village": "kodanur",
+    "timestamp": "2026-10-12T23:44:11",
+    "status": "OK",
+    "source_image": "kodanur.png",
+    "annotation_exists": true,
+    "vertex_count": 140,
+    "outputs": {
+      "mask": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\kodanur_polygon_mask.png",
+      "cutout": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\kodanur_polygon_cutout.png",
+      "outline": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\kodanur_polygon_outline.png",
+      "preview": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\kodanur_polygon_preview.jpg",
+      "metadata": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\kodanur_polygon_metadata.json"
+    },
+    "validation": {
+      "source_exists": true,
+      "annotation_exists": true,
+      "vertex_count_ok": true,
+      "mask_exists": true,
+      "mask_has_foreground": true,
+      "mask_has_background": true,
+      "mask_not_empty": true,
+      "mask_not_full": true,
+      "cutout_exists": true,
+      "cutout_is_rgba": true,
+      "cutout_transparent_outside": true,
+      "cutout_opaque_inside": true,
+      "outline_exists": true,
+      "outline_nonempty": true,
+      "preview_exists": true
+    },
+    "errors": []
+  },
+  {
+    "village": "pudur",
+    "timestamp": "2026-10-12T23:44:13",
+    "status": "OK",
+    "source_image": "pudur.png",
+    "annotation_exists": true,
+    "vertex_count": 120,
+    "outputs": {
+      "mask": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\pudur_polygon_mask.png",
+      "cutout": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\pudur_polygon_cutout.png",
+      "outline": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\pudur_polygon_outline.png",
+      "preview": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\pudur_polygon_preview.jpg",
+      "metadata": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\pudur_polygon_metadata.json"
+    },
+    "validation": {
+      "source_exists": true,
+      "annotation_exists": true,
+      "vertex_count_ok": true,
+      "mask_exists": true,
+      "mask_has_foreground": true,
+      "mask_has_background": true,
+      "mask_not_empty": true,
+      "mask_not_full": true,
+      "cutout_exists": true,
+      "cutout_is_rgba": true,
+      "cutout_transparent_outside": true,
+      "cutout_opaque_inside": true,
+      "outline_exists": true,
+      "outline_nonempty": true,
+      "preview_exists": true
+    },
+    "errors": []
+  },
+  {
+    "village": "panapalli",
+    "timestamp": "2026-10-12T23:44:13",
+    "status": "OK",
+    "source_image": "panapalli.png",
+    "annotation_exists": true,
+    "vertex_count": 130,
+    "outputs": {
+      "mask": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\panapalli_polygon_mask.png",
+      "cutout": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\panapalli_polygon_cutout.png",
+      "outline": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\panapalli_polygon_outline.png",
+      "preview": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\panapalli_polygon_preview.jpg",
+      "metadata": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\panapalli_polygon_metadata.json"
+    },
+    "validation": {
+      "source_exists": true,
+      "annotation_exists": true,
+      "vertex_count_ok": true,
+      "mask_exists": true,
+      "mask_has_foreground": true,
+      "mask_has_background": true,
+      "mask_not_empty": true,
+      "mask_not_full": true,
+      "cutout_exists": true,
+      "cutout_is_rgba": true,
+      "cutout_transparent_outside": true,
+      "cutout_opaque_inside": true,
+      "outline_exists": true,
+      "outline_nonempty": true,
+      "preview_exists": true
+    },
+    "errors": []
+  },
+  {
+    "village": "kandivazhi",
+    "timestamp": "2026-10-12T23:44:15",
+    "status": "OK",
+    "source_image": "kandivazhi.png",
+    "annotation_exists": true,
+    "vertex_count": 150,
+    "outputs": {
+      "mask": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\kandivazhi_polygon_mask.png",
+      "cutout": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\kandivazhi_polygon_cutout.png",
+      "outline": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\kandivazhi_polygon_outline.png",
+      "preview": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\kandivazhi_polygon_preview.jpg",
+      "metadata": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\kandivazhi_polygon_metadata.json"
+    },
+    "validation": {
+      "source_exists": true,
+      "annotation_exists": true,
+      "vertex_count_ok": true,
+      "mask_exists": true,
+      "mask_has_foreground": true,
+      "mask_has_background": true,
+      "mask_not_empty": true,
+      "mask_not_full": true,
+      "cutout_exists": true,
+      "cutout_is_rgba": true,
+      "cutout_transparent_outside": true,
+      "cutout_opaque_inside": true,
+      "outline_exists": true,
+      "outline_nonempty": true,
+      "preview_exists": true
+    },
+    "errors": []
+  },
+  {
+    "village": "sembukarai",
+    "timestamp": "2026-10-12T23:44:17",
+    "status": "OK",
+    "source_image": "sembukarai.png",
+    "annotation_exists": true,
+    "vertex_count": 135,
+    "outputs": {
+      "mask": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\sembukarai_polygon_mask.png",
+      "cutout": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\sembukarai_polygon_cutout.png",
+      "outline": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\sembukarai_polygon_outline.png",
+      "preview": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\sembukarai_polygon_preview.jpg",
+      "metadata": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\sembukarai_polygon_metadata.json"
+    },
+    "validation": {
+      "source_exists": true,
+      "annotation_exists": true,
+      "vertex_count_ok": true,
+      "mask_exists": true,
+      "mask_has_foreground": true,
+      "mask_has_background": true,
+      "mask_not_empty": true,
+      "mask_not_full": true,
+      "cutout_exists": true,
+      "cutout_is_rgba": true,
+      "cutout_transparent_outside": true,
+      "cutout_opaque_inside": true,
+      "outline_exists": true,
+      "outline_nonempty": true,
+      "preview_exists": true
+    },
+    "errors": []
+  },
+  {
+    "village": "dhoomanur",
+    "timestamp": "2026-10-12T23:44:19",
+    "status": "SKIPPED_NO_SOURCE_IMAGE",
+    "source_image": null,
+    "annotation_exists": false,
+    "vertex_count": 0,
+    "outputs": {},
+    "validation": {},
+    "errors": [
+      "No source screenshot available for dhoomanur. Add the image to data/Seven Villages/."
+    ]
+  },
+  {
+    "village": "thuvaipathy",
+    "timestamp": "2026-10-12T23:44:19",
+    "status": "SKIPPED_NO_SOURCE_IMAGE",
+    "source_image": null,
+    "annotation_exists": false,
+    "vertex_count": 0,
+    "outputs": {},
+    "validation": {},
+    "errors": [
+      "No source screenshot available for thuvaipathy. Add the image to data/Seven Villages/."
+    ]
+  }
+]

@@ -19,6 +19,21 @@ models/
 results/
 temp_audio.wav
 
+# Track village polygon cutout pipeline outputs
+!data/village_polygon_cutouts/
+!data/village_polygon_cutouts/annotations/
+!data/village_polygon_cutouts/annotations/*.json
+!data/village_polygon_cutouts/outputs/
+!data/village_polygon_cutouts/outputs/*.png
+!data/village_polygon_cutouts/outputs/*.jpg
+!data/village_polygon_cutouts/outputs/*.json
+!data/village_polygon_cutouts/outputs/README.txt
+!data/village_polygon_cutouts/annotations/README.txt
+
+# Track results that belong to the cutout pipeline
+!results/
+!results/village_polygon_cutout_validation.json
+
 # IDEs
 .vscode/
 .idea/
