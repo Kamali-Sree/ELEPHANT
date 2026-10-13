@@ -1,0 +1,123 @@
+{
+  "type": "FeatureCollection",
+  "name": "maconflic-settlement-outlines",
+  "metadata": {
+    "description": "Image-derived settlement outlines & built-up footprint status for MACONFLIC study area",
+    "crs": "urn:ogc:def:crs:OGC:1.3:CRS84",
+    "updated_at": "2026-10-12T01:25:00Z"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "OUTLINE_KON",
+        "name": "Kondanur",
+        "category": "tribal_settlement",
+        "source_image": "kodanur.png",
+        "classification": "image-derived settlement outline",
+        "georeferenced": false,
+        "alignment_status": "NOT GEOREFERENCED (Lacks World File / Precise Control Points)",
+        "extraction_method": "High-reflectance cluster segmentation along road junction",
+        "approx_center": [76.7910, 11.1080],
+        "notes": "Original screenshot (kodanur.png) captures central hamlet cluster around junction with western spur. Due to absence of georeferencing world file (.pgw) or sub-meter control points, geographic polygon is withheld to prevent arbitrary spatial distortion on basemap."
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "OUTLINE_PUD",
+        "name": "Pudur",
+        "category": "tribal_settlement",
+        "source_image": "pudur.png",
+        "classification": "built-up footprint estimate",
+        "georeferenced": false,
+        "alignment_status": "NOT GEOREFERENCED (Lacks World File / Precise Control Points)",
+        "extraction_method": "Enclosed northern compound cluster & southern hamlet segmentation",
+        "approx_center": [76.7700, 11.1300],
+        "notes": "Original screenshot (pudur.png) captures distinct northern walled residential/farm enclave (enclosed by road loop) and southern junction clusters. Due to lack of embedded spatial reference bounds, polygon is withheld from automatic projection."
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "OUTLINE_PAN",
+        "name": "Panapalli",
+        "category": "tribal_settlement",
+        "source_image": "panapalli.png",
+        "classification": "image-derived settlement outline",
+        "georeferenced": false,
+        "alignment_status": "NOT GEOREFERENCED (Lacks World File / Precise Control Points)",
+        "extraction_method": "Linear terrace road settlement cluster extraction",
+        "approx_center": [76.78808, 11.09305],
+        "notes": "Original screenshot (panapalli.png) displays compact, high-density residential buildings strung along central winding mountain road with surrounding agricultural terraces. Ground control points are insufficient for rigorous affine projection."
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "OUTLINE_KAN",
+        "name": "Kandivalli / Kandivazhi",
+        "category": "tribal_settlement",
+        "source_image": "kandivazhi.png",
+        "classification": "image-derived settlement outline",
+        "georeferenced": false,
+        "alignment_status": "NOT GEOREFERENCED (Lacks World File / Precise Control Points)",
+        "extraction_method": "Multi-nucleus hamlet & farm building segmentation",
+        "approx_center": [76.8000, 11.1167],
+        "notes": "Original screenshot (kandivazhi.png) depicts two distinct built-up nuclei: western hillside hamlet and eastern roadway hamlet with agricultural clearings. Spatial bounds not georeferenced."
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "OUTLINE_SEM",
+        "name": "Sembukarai",
+        "category": "tribal_settlement",
+        "source_image": "sembukarai.png",
+        "classification": "built-up footprint estimate",
+        "georeferenced": false,
+        "alignment_status": "PARTIAL METADATA (Overlay Map Scale 1:8,859 | Level 16, Route 164 / Thadagam Road)",
+        "extraction_method": "Road corridor & institutional/residential compound extraction",
+        "approx_center": [76.7500, 11.1300],
+        "notes": "Screenshot displays Thadagam Road (SH 164) and Esri scale watermark '1:8,859 | Level 16'. While highway alignment and scale are visible, corner geodetic coordinates remain uncalibrated without GIS control points."
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "OUTLINE_DHO",
+        "name": "Dhoomanur / Dhoomanoor",
+        "category": "tribal_settlement",
+        "source_image": null,
+        "classification": "missing_source_imagery",
+        "georeferenced": false,
+        "alignment_status": "MISSING SOURCE SCREENSHOT & UNRESOLVED GROUND TRUTH",
+        "extraction_method": "N/A",
+        "approx_center": null,
+        "notes": "No Esri Wayback screenshot or verified coordinates exist in the project for Dhoomanur. Outlines were not fabricated."
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "OUTLINE_THU",
+        "name": "Thuvaipathy / Thuvaipathi",
+        "category": "tribal_settlement",
+        "source_image": null,
+        "classification": "missing_source_imagery",
+        "georeferenced": false,
+        "alignment_status": "MISSING SOURCE SCREENSHOT",
+        "extraction_method": "N/A",
+        "approx_center": [76.7800, 11.1200],
+        "notes": "Reference point available in maconflic-settlements.geojson, but no Esri Wayback screenshot exists in data/Seven Villages/. Outlines were not fabricated."
+      },
+      "geometry": null
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+    "status": "insufficient_data",
+    "message": "Insufficient labelled movement data for supervised elephant-path prediction.",
+    "model_architecture": "Distance-decay heuristic (Spatial MCE) used as fallback.",
+    "features_used": ["distance_to_settlement"],
+    "evaluation": {
+        "spatial_validation": "Not possible without historical path data.",
+        "metrics": null
+    }
+}

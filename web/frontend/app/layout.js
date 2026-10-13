@@ -27,6 +27,7 @@ function Navigation() {
   const links = [
     { href: "/", label: "Dashboard", icon: "📊" },
     { href: "/map", label: "GIS Map", icon: "🗺️" },
+    { href: "/map/satellite", label: "Satellite Risk Map", icon: "🛰️" },
     { href: "/analyze", label: "Analyzer", icon: "🔬" },
     { href: "/report", label: "Report", icon: "📝" },
     { href: "/alerts", label: "Alerts", icon: "🔔" },

@@ -1,0 +1,124 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KON_001",
+        "village": "Kondanur",
+        "zone_type": "danger_spot",
+        "risk_level": "HIGH",
+        "source": "project_defined",
+        "source_note": "Project-defined operational danger spot based on documented conflict geography and satellite interpretation; not an official boundary.",
+        "description": "Localized forest-village conflict area (Requires manual digitization)",
+        "needs_digitization": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[76.710, 11.100], [76.711, 11.100], [76.711, 11.101], [76.710, 11.101], [76.710, 11.100]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PUD_001",
+        "village": "Pudur",
+        "zone_type": "danger_spot",
+        "risk_level": "MEDIUM",
+        "source": "project_defined",
+        "source_note": "Project-defined operational danger spot based on documented conflict geography and satellite interpretation; not an official boundary.",
+        "description": "Localized forest-village conflict area (Requires manual digitization)",
+        "needs_digitization": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[76.720, 11.110], [76.721, 11.110], [76.721, 11.111], [76.720, 11.111], [76.720, 11.110]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PAN_001",
+        "village": "Panapalli",
+        "zone_type": "danger_spot",
+        "risk_level": "WATCH",
+        "source": "project_defined",
+        "source_note": "Project-defined operational danger spot based on documented conflict geography and satellite interpretation; not an official boundary.",
+        "description": "Localized forest-village conflict area (Requires manual digitization)",
+        "needs_digitization": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[76.730, 11.120], [76.731, 11.120], [76.731, 11.121], [76.730, 11.121], [76.730, 11.120]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KAN_001",
+        "village": "Kandivalli",
+        "zone_type": "danger_spot",
+        "risk_level": "HIGH",
+        "source": "project_defined",
+        "source_note": "Project-defined operational danger spot based on documented conflict geography and satellite interpretation; not an official boundary.",
+        "description": "Localized forest-village conflict area (Requires manual digitization)",
+        "needs_digitization": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[76.740, 11.130], [76.741, 11.130], [76.741, 11.131], [76.740, 11.131], [76.740, 11.130]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "SEM_001",
+        "village": "Sembukarai",
+        "zone_type": "danger_spot",
+        "risk_level": "MEDIUM",
+        "source": "project_defined",
+        "source_note": "Project-defined operational danger spot based on documented conflict geography and satellite interpretation; not an official boundary.",
+        "description": "Localized forest-village conflict area (Requires manual digitization)",
+        "needs_digitization": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[76.750, 11.140], [76.751, 11.140], [76.751, 11.141], [76.750, 11.141], [76.750, 11.140]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "DHO_001",
+        "village": "Dhoomanur",
+        "zone_type": "danger_spot",
+        "risk_level": "WATCH",
+        "source": "project_defined",
+        "source_note": "Project-defined operational danger spot based on documented conflict geography and satellite interpretation; not an official boundary.",
+        "description": "Localized forest-village conflict area (Requires manual digitization)",
+        "needs_digitization": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[76.760, 11.150], [76.761, 11.150], [76.761, 11.151], [76.760, 11.151], [76.760, 11.150]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "THU_001",
+        "village": "Thuvaipathy",
+        "zone_type": "danger_spot",
+        "risk_level": "HIGH",
+        "source": "project_defined",
+        "source_note": "Project-defined operational danger spot based on documented conflict geography and satellite interpretation; not an official boundary.",
+        "description": "Localized forest-village conflict area (Requires manual digitization)",
+        "needs_digitization": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[76.770, 11.160], [76.771, 11.160], [76.771, 11.161], [76.770, 11.161], [76.770, 11.160]]]
+      }
+    }
+  ]
+}

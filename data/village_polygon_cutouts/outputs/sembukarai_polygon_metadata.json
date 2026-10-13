@@ -1,0 +1,19 @@
+{
+  "village": "sembukarai",
+  "source_image": "sembukarai.png",
+  "image_size": [
+    1337,
+    842
+  ],
+  "vertex_count": 135,
+  "annotation_file": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\annotations\\sembukarai_polygon.json",
+  "annotation_method": "auto_organic_terrain_edge",
+  "annotated_at": "2026-10-12T23:44:11",
+  "processed_at": "2026-10-12T23:44:19",
+  "outputs": {
+    "mask": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\sembukarai_polygon_mask.png",
+    "cutout": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\sembukarai_polygon_cutout.png",
+    "outline": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\sembukarai_polygon_outline.png",
+    "preview": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\sembukarai_polygon_preview.jpg"
+  }
+}

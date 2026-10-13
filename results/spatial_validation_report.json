@@ -1,0 +1,6 @@
+{
+    "status": "failed",
+    "message": "Data is insufficient for reliable spatial evaluation.",
+    "reason": "No ground truth georeferenced polygons or historical elephant paths exist in the dataset.",
+    "metrics": {}
+}

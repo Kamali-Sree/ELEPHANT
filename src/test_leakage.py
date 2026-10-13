@@ -166,7 +166,7 @@ def test_leakage(csv_path=None, model_path=None):
     # ─── Save Report ───
     os.makedirs('results', exist_ok=True)
     report_path = 'results/leakage_test_report.txt'
-    with open(report_path, 'w') as f:
+    with open(report_path, 'w', encoding='utf-8') as f:
         f.write("=" * 60 + "\n")
         f.write("DATA LEAKAGE TEST REPORT\n")
         f.write("=" * 60 + "\n\n")

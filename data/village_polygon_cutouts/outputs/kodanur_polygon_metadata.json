@@ -1,0 +1,19 @@
+{
+  "village": "kodanur",
+  "source_image": "kodanur.png",
+  "image_size": [
+    1362,
+    775
+  ],
+  "vertex_count": 140,
+  "annotation_file": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\annotations\\kodanur_polygon.json",
+  "annotation_method": "auto_organic_terrain_edge",
+  "annotated_at": "2026-10-12T23:44:11",
+  "processed_at": "2026-10-12T23:44:13",
+  "outputs": {
+    "mask": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\kodanur_polygon_mask.png",
+    "cutout": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\kodanur_polygon_cutout.png",
+    "outline": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\kodanur_polygon_outline.png",
+    "preview": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\kodanur_polygon_preview.jpg"
+  }
+}

@@ -1,0 +1,9 @@
+{
+    "model_name": "Spatial Distance-Decay MCE (Heuristic)",
+    "prediction_date": "2026-09-28T10:00:00Z",
+    "training_dataset_info": "No historical movement tracking data available. Model uses static MCE heuristics.",
+    "historical_observations_count": 0,
+    "validation_score": null,
+    "georeferenced": false,
+    "opacity_default": 0.6
+}

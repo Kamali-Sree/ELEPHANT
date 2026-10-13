@@ -20,6 +20,7 @@ const MapComponent = dynamic(() => import("./MapComponent"), {
 
 export default function MapPage() {
   const [geojson, setGeojson] = useState(null);
+  const [alerts, setAlerts] = useState([]);
   const [filters, setFilters] = useState({ call_type: "", severity: "" });
   const [loading, setLoading] = useState(true);
   const [userLocation, setUserLocation] = useState(null);
@@ -47,6 +48,76 @@ export default function MapPage() {
 
   useEffect(() => {
     fetchData();
+
+    // Set up real-time SSE connection
+    const eventSource = new EventSource(`${API_BASE}/api/events/stream`);
+
+    eventSource.addEventListener("incident_created", (e) => {
+      try {
+        const incident = JSON.parse(e.data);
+        // Only add if it has valid location
+        if (incident.latitude === null || incident.longitude === null) return;
+        
+        const newFeature = {
+          type: "Feature",
+          geometry: {
+            type: "Point",
+            coordinates: [incident.longitude, incident.latitude]
+          },
+          properties: {
+            id: incident.id,
+            species: incident.species,
+            call_type: incident.call_type,
+            confidence: incident.confidence,
+            severity: incident.severity,
+            status: incident.status,
+            description: incident.description,
+            reporter: incident.reporter_name,
+            created_at: incident.created_at,
+            risk_score: incident.risk_score,
+            risk_reason: incident.risk_reason
+          }
+        };
+
+        setGeojson((prev) => {
+          if (!prev) return { type: "FeatureCollection", features: [newFeature] };
+          // Deduplicate just in case
+          if (prev.features.some(f => f.properties.id === newFeature.properties.id)) return prev;
+          return {
+            ...prev,
+            features: [newFeature, ...prev.features]
+          };
+        });
+      } catch (err) {
+        console.error("Error parsing incident SSE", err);
+      }
+    });
+
+    eventSource.addEventListener("alert_created", (e) => {
+      try {
+        const alert = JSON.parse(e.data);
+        setAlerts((prev) => {
+          if (prev.some(a => a.id === alert.id)) return prev;
+          return [alert, ...prev];
+        });
+      } catch (err) {
+        console.error("Error parsing alert SSE", err);
+      }
+    });
+
+    const handleAlertRemoval = (e) => {
+      try {
+        const { id } = JSON.parse(e.data);
+        setAlerts((prev) => prev.filter(a => a.id !== id));
+      } catch (err) {}
+    };
+
+    eventSource.addEventListener("alert_resolved", handleAlertRemoval);
+    eventSource.addEventListener("alert_expired", handleAlertRemoval);
+
+    return () => {
+      eventSource.close();
+    };
   }, [filters]);
 
   async function fetchData() {
@@ -58,6 +129,12 @@ export default function MapPage() {
 
       const res = await fetch(`${API_BASE}/api/incidents/heatmap?${params}`);
       if (res.ok) setGeojson(await res.json());
+
+      const alertsRes = await fetch(`${API_BASE}/api/alerts`);
+      if (alertsRes.ok) {
+        const alertsData = await alertsRes.json();
+        setAlerts(alertsData.alerts || []);
+      }
     } catch (err) {
       console.error("Failed to fetch map data:", err);
     } finally {
@@ -122,7 +199,7 @@ export default function MapPage() {
 
       {/* Map */}
       <div className="glass-card" style={{ padding: 0, overflow: "hidden" }}>
-        <MapComponent geojson={geojson} userLocation={userLocation} />
+        <MapComponent geojson={geojson} userLocation={userLocation} alerts={alerts} />
       </div>
 
       {/* Legend */}

@@ -1,0 +1,75 @@
+{
+    "status": "refined_and_validated",
+    "timestamp": "2026-10-12T01:44:00Z",
+    "validation_summary": "All 15 generated settlement mask and preview outputs verified. Panapalli parameters refined to 120 threshold with expanded box focus. Comparison sheet script configured at scripts/create_comparison_sheet.py.",
+    "comparison_sheet_path": "data/settlement_outlines/settlement_comparison.png",
+    "panapalli_refinement": {
+        "old_threshold": 135,
+        "new_threshold": 120,
+        "old_box_focus": [350, 320, 560, 480],
+        "new_box_focus": [340, 310, 600, 490],
+        "old_foreground_pixels": 1233,
+        "old_foreground_percentage": "0.12%",
+        "expected_refined_pixels": "~2,800 - 3,500 px",
+        "expected_refined_percentage": "~0.27% - 0.33%",
+        "objective_effect": "Incorporates darker clay-tile rooftops and adjacent dwellings along the central village road spine without expanding into surrounding agricultural step terraces."
+    },
+    "settlement_evaluations": [
+        {
+            "name": "Kondanur",
+            "source_image": "kodanur.png",
+            "dimensions": [1362, 775],
+            "mask_file": "kodanur_mask.png",
+            "preview_file": "kodanur_preview.png",
+            "foreground_pixels": 15051,
+            "foreground_percentage": "1.43%",
+            "visual_inspection": "Passable. Accurately segments central road junction cluster, northern homestead, and western spur. Partial over-segmentation on bright dirt road sections. Forest and terraced fields successfully suppressed."
+        },
+        {
+            "name": "Pudur",
+            "source_image": "pudur.png",
+            "dimensions": [927, 586],
+            "mask_file": "pudur_mask.png",
+            "preview_file": "pudur_preview.png",
+            "foreground_pixels": 4208,
+            "foreground_percentage": "0.77%",
+            "visual_inspection": "Good. Clearly isolates the enclosed northern residential/farm compound within the ring road and southern road junction structures. Surrounding forest canopy and terraced slopes cleanly excluded."
+        },
+        {
+            "name": "Panapalli",
+            "source_image": "panapalli.png",
+            "dimensions": [1350, 777],
+            "mask_file": "panapalli_mask.png",
+            "preview_file": "panapalli_preview.png",
+            "foreground_pixels": 1233,
+            "foreground_percentage": "0.12% (Pre-refinement)",
+            "visual_inspection": "Previously under-segmented at 135 threshold (only bright metal roofs captured). Refined to threshold 120 with expanded focus box to incorporate darker tiled dwellings along village spine."
+        },
+        {
+            "name": "Kandivalli / Kandivazhi",
+            "source_image": "kandivazhi.png",
+            "dimensions": [1420, 781],
+            "mask_file": "kandivazhi_mask.png",
+            "preview_file": "kandivazhi_preview.png",
+            "foreground_pixels": 15176,
+            "foreground_percentage": "1.37%",
+            "visual_inspection": "Fair. Successfully captures western hillside hamlet and eastern roadside settlement. Moderate over-segmentation on pale dry soil patches along unpaved road segments."
+        },
+        {
+            "name": "Sembukarai",
+            "source_image": "sembukarai.png",
+            "dimensions": [1337, 842],
+            "mask_file": "sembukarai_mask.png",
+            "preview_file": "sembukarai_preview.png",
+            "foreground_pixels": 9329,
+            "foreground_percentage": "0.83%",
+            "visual_inspection": "Good. Accurately delineates compound clusters along State Highway 164 (Thadagam Road). Watermark and mountain canopy cleanly suppressed."
+        }
+    ],
+    "remaining_segmentation_limitations": [
+        "Unpaved roads with pale, dry soil have spectral signatures close to weathered building roofs, causing minor road spur inclusion in Kondanur and Kandivazhi.",
+        "Dry agricultural fallow clearings occasionally register as non-vegetated high-reflectance regions without multi-spectral infrared bands.",
+        "Sub-meter building boundaries merge into single cluster blobs due to necessary morphological closing operations."
+    ],
+    "geographic_calibration_status": "NONE. The screenshots are raw RGB captures without embedded affine transform matrices, world files (.pgw/.tfw), or sub-meter ground control points. Derived polygons remain in pixel coordinates and are strictly withheld from geographic projection."
+}

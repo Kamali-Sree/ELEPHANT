@@ -1,0 +1,107 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "SET_PAN",
+        "name": "Panapalli",
+        "settlement_type": "tribal_settlement",
+        "source": "Research/Wildlife Corridor Data",
+        "source_note": "Verified from WTI elephant corridor report",
+        "status": "VERIFIED"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [76.78808, 11.09305]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "SET_THU",
+        "name": "Thuvaipathy",
+        "settlement_type": "tribal_settlement",
+        "source": "Nilgiri Biosphere Nature Park",
+        "source_note": "Visually verified via Satellite / Nature Park location",
+        "status": "VERIFIED"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [76.7800, 11.1200]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "SET_SEM",
+        "name": "Sembukarai",
+        "settlement_type": "tribal_settlement",
+        "source": "Trekking Base Coordinates",
+        "source_note": "Visually verified via Satellite / Perumal Mudi Base",
+        "status": "VERIFIED"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [76.7500, 11.1300]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "SET_PUD",
+        "name": "Pudur",
+        "settlement_type": "tribal_settlement",
+        "source": "Property / Check Dam Data",
+        "source_note": "Visually verified via Satellite",
+        "status": "VERIFIED"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [76.7700, 11.1300]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "SET_KON",
+        "name": "Kondanur",
+        "settlement_type": "tribal_settlement",
+        "source": "Local Candidate Verification",
+        "source_note": "Visually verified via Satellite",
+        "status": "VERIFIED"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [76.7910, 11.1080]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "SET_KAN",
+        "name": "Kandivalli",
+        "settlement_type": "tribal_settlement",
+        "source": "Local Candidate Verification",
+        "source_note": "Visually verified via Satellite",
+        "status": "VERIFIED"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [76.8000, 11.1167]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "SET_DHO",
+        "name": "Dhoomanur",
+        "settlement_type": "tribal_settlement",
+        "source": "None",
+        "source_note": "No verified Dhoomanur-specific coordinate established; previous coordinate was generic Anaikatti centroid.",
+        "status": "UNRESOLVED"
+      },
+      "geometry": null
+    }
+  ]
+}

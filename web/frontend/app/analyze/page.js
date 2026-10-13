@@ -78,28 +78,6 @@ export default function AnalyzePage() {
       const data = await res.json();
       setResult(data);
 
-      // --- DYNAMIC DATA: Automatically log positive detections to DB ---
-      if (data.predicted_class && data.predicted_class !== "Non_Elephant") {
-        try {
-          await fetch(`${API_BASE}/api/incidents`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              latitude: (10.9 + (Math.random() * 0.4 - 0.2)).toFixed(5),
-              longitude: (76.8 + (Math.random() * 0.4 - 0.2)).toFixed(5),
-              species: "Elephant",
-              call_type: data.predicted_class,
-              severity: data.predicted_class === "Roar" || data.predicted_class === "Trumpet" ? "high" : "medium",
-              confidence: data.confidence,
-              reporter_name: "Web Analyzer (Upload)",
-              description: `Uploaded audio manually analyzed via Web Interface.`
-            })
-          });
-        } catch (dbErr) {
-          console.error("Failed to auto-log to database:", dbErr);
-        }
-      }
-      
     } catch (err) {
       setError(err.message);
     } finally {
@@ -205,6 +183,28 @@ export default function AnalyzePage() {
                 </div>
                 <div style={{ color: "var(--text-muted)", fontSize: "0.8rem" }}>Confidence</div>
               </div>
+            </div>
+
+            {/* Incident Status */}
+            <div style={{
+              display: "flex", alignItems: "center", justifyContent: "space-between",
+              padding: "1rem 1.5rem", background: "var(--bg-tertiary)",
+              borderRadius: "var(--radius-sm)", marginBottom: "1.5rem",
+              border: result.incident_created ? "1px solid var(--accent-green)" : "1px solid var(--border-color)",
+            }}>
+              <div>
+                <strong style={{ fontSize: "0.95rem" }}>Incident Record:</strong>{" "}
+                {result.incident_created ? (
+                  <span style={{ color: "var(--accent-green)", fontWeight: 500 }}>Created</span>
+                ) : (
+                  <span style={{ color: "var(--text-secondary)" }}>Not Created</span>
+                )}
+              </div>
+              {result.incident_created && (
+                <div style={{ fontWeight: 600, fontSize: "1.1rem" }}>
+                  ID: #{result.incident_id}
+                </div>
+              )}
             </div>
 
             {/* Class Probabilities */}

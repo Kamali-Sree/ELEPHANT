@@ -32,11 +32,12 @@ The project has evolved into a modern, production-grade Web Application with thr
 
 ### B. Backend Server Layer (FastAPI & SQLite)
 - **Framework:** Python FastAPI.
-- **Purpose:** Exposes RESTful APIs for the frontend to interact with the database and the AI model.
+- **Purpose:** Exposes RESTful APIs for the frontend to interact with the database, AI model, Risk Engine, and Alert Engine.
 - **Endpoints:** 
-  - `/api/predict`: Handles audio uploads, runs the PyTorch model, and returns predictions & Grad-CAM images. Automatically logs positive elephant detections to the database.
+  - `/api/predict`: Handles audio uploads, runs the PyTorch model, and returns predictions & Grad-CAM images.
   - `/api/incidents`: CRUD operations for wildlife incident data (Latitude, Longitude, Call Type, Severity).
-  - `/api/alerts`: Manages active early-warning broadcasts.
+  - `/api/alerts`: Manages active early-warning broadcasts based on geographical risk zones.
+  - `/api/events/stream`: Server-Sent Events (SSE) endpoint for real-time dashboard synchronization.
 
 ### C. Frontend Web Platform (Next.js & React)
 - **Framework:** Next.js (React) with dynamic client-side routing.
@@ -54,9 +55,43 @@ To demonstrate how the system works in a real-world scenario with physical micro
 - It dynamically generates GPS coordinates near known elephant corridors and POSTs the data to the FastAPI backend.
 - The web platform (Dashboard and GIS Map) updates in real-time, showing the incident count rising and new markers appearing on the map without manual intervention.
 
+## 4. Full System Architecture & Data Flow
+
+The MACONFLIC pipeline integrates multiple engines to move from raw audio to automated community alerts natively and in real-time.
+
+```text
+┌──────────────────────────────────────────┐
+│              MACONFLIC                   │
+│                                          │
+│ Audio / IoT / Manual                     │
+│          ↓                               │
+│     AI Detection                         │
+│          ↓                               │
+│      Incident                            │
+│          ↓                               │
+│     Risk Engine                          │
+│          ↓                               │
+│    Alert Engine                          │
+│          ↓                               │
+│     SQLite Database                      │
+│          ↓                               │
+│       SSE Events                         │
+│          ↓                               │
+│      Live GIS Map                        │
+│          ↓                               │
+│  Human / Community Warning               │
+└──────────────────────────────────────────┘
+```
+
+### Module Specifications
+* **AI Detection:** Uses a custom SE-CNN (Squeeze-and-Excitation CNN) trained to classify 4 distinct classes (Roar, Rumble, Trumpet, Non-Elephant). The model operates at an 82.5% test accuracy.
+* **Risk Engine:** Evaluates incidents based on location and confidence to generate a Risk Score. *(Note: This score is currently a configurable engineering rule designed for platform demonstration, not a scientifically validated ecological probability.)*
+* **Alert Engine:** Automatically evaluates the Risk Level. If an incident reaches `HIGH` or `CRITICAL`, it instantly creates a deduplicated geographical Alert Zone (e.g. 1.0 km radius for HIGH, 2.0 km for CRITICAL).
+* **SSE (Real-Time Communication):** Employs an in-memory event manager to push updates instantly to connected browsers. *(Note: The current pub/sub system is in-memory and intended for this single-backend prototype. A production multi-node deployment would require an external broker like Redis.)*
+
 ---
 
-## 4. How to Run the Platform
+## 5. How to Run the Platform
 
 ### Step 1: Start the Backend (FastAPI)
 ```bash
@@ -79,16 +114,6 @@ npm run dev
 python scripts/sensor_simulator.py
 ```
 *This will begin pushing live, simulated elephant detections to the map and dashboard every 10 seconds.*
-
----
-
-## 5. Summary of Major Updates for Final Year Presentation
-
-1. **Moved from a simple Streamlit script to a Full-Stack Web Application.** (Next.js + FastAPI).
-2. **Upgraded the AI Model** to include SE-Attention mechanisms and Grad-CAM explainability for higher accuracy and scientific transparency.
-3. **Replaced static CSV data with a live SQLite Database.**
-4. **Built a dynamic IoT Simulator** to prove the system works as a real-time early warning network.
-5. **Integrated GPS Geolocation** so field rangers can use their phone's live location to report incidents directly from the jungle.
 
 ---
 *Developed for the mitigation of Human-Elephant Conflict.*

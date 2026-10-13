@@ -41,8 +41,8 @@ def init_db():
         conn.executescript("""
             CREATE TABLE IF NOT EXISTS incidents (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                latitude REAL NOT NULL,
-                longitude REAL NOT NULL,
+                latitude REAL,
+                longitude REAL,
                 species TEXT DEFAULT 'Elephant',
                 call_type TEXT,
                 confidence REAL,
@@ -52,6 +52,9 @@ def init_db():
                 description TEXT,
                 severity TEXT DEFAULT 'medium' CHECK(severity IN ('low', 'medium', 'high', 'critical')),
                 status TEXT DEFAULT 'reported' CHECK(status IN ('reported', 'verified', 'resolved', 'false_alarm')),
+                source TEXT DEFAULT 'MANUAL_REPORT',
+                risk_score INTEGER,
+                risk_reason TEXT,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
@@ -65,6 +68,10 @@ def init_db():
                 longitude REAL,
                 radius_km REAL DEFAULT 5.0,
                 is_active INTEGER DEFAULT 1,
+                status TEXT DEFAULT 'ACTIVE' CHECK(status IN ('ACTIVE', 'RESOLVED', 'EXPIRED')),
+                expires_at TIMESTAMP,
+                risk_level TEXT,
+                risk_score INTEGER,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
 
@@ -75,6 +82,79 @@ def init_db():
             CREATE INDEX IF NOT EXISTS idx_incidents_severity
                 ON incidents(severity);
         """)
+
+        # Check if source column exists to handle migration
+        col_exists = False
+        columns = conn.execute("PRAGMA table_info(incidents)").fetchall()
+        for col in columns:
+            if col['name'] == 'source':
+                col_exists = True
+                break
+        
+        if not col_exists:
+            # Perform table migration to drop NOT NULL and add source
+            conn.executescript("""
+                PRAGMA foreign_keys=off;
+                BEGIN TRANSACTION;
+                CREATE TABLE incidents_new (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    latitude REAL,
+                    longitude REAL,
+                    species TEXT DEFAULT 'Elephant',
+                    call_type TEXT,
+                    confidence REAL,
+                    audio_filename TEXT,
+                    reporter_name TEXT DEFAULT 'Anonymous',
+                    reporter_contact TEXT,
+                    description TEXT,
+                    severity TEXT DEFAULT 'medium' CHECK(severity IN ('low', 'medium', 'high', 'critical')),
+                    status TEXT DEFAULT 'reported' CHECK(status IN ('reported', 'verified', 'resolved', 'false_alarm')),
+                    source TEXT DEFAULT 'MANUAL_REPORT',
+                    risk_score INTEGER,
+                    risk_reason TEXT,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                );
+                INSERT INTO incidents_new (id, latitude, longitude, species, call_type, confidence, audio_filename, reporter_name, reporter_contact, description, severity, status, created_at, updated_at)
+                SELECT id, latitude, longitude, species, call_type, confidence, audio_filename, reporter_name, reporter_contact, description, severity, status, created_at, updated_at FROM incidents;
+                DROP TABLE incidents;
+                ALTER TABLE incidents_new RENAME TO incidents;
+                COMMIT;
+                PRAGMA foreign_keys=on;
+            """)
+
+        # Migration for risk fields (if source existed but risk doesn't)
+        col_exists_risk = False
+        columns = conn.execute("PRAGMA table_info(incidents)").fetchall()
+        for col in columns:
+            if col['name'] == 'risk_score':
+                col_exists_risk = True
+                break
+        
+        if not col_exists_risk:
+            conn.executescript("""
+                ALTER TABLE incidents ADD COLUMN risk_score INTEGER;
+                ALTER TABLE incidents ADD COLUMN risk_reason TEXT;
+            """)
+
+        # Migration for alert fields
+        col_exists_alert = False
+        columns = conn.execute("PRAGMA table_info(alerts)").fetchall()
+        for col in columns:
+            if col['name'] == 'status':
+                col_exists_alert = True
+                break
+        
+        if not col_exists_alert:
+            conn.executescript("""
+                ALTER TABLE alerts ADD COLUMN status TEXT DEFAULT 'ACTIVE';
+                ALTER TABLE alerts ADD COLUMN expires_at TIMESTAMP;
+                ALTER TABLE alerts ADD COLUMN risk_level TEXT;
+                ALTER TABLE alerts ADD COLUMN risk_score INTEGER;
+                
+                UPDATE alerts SET status = 'ACTIVE' WHERE is_active = 1;
+                UPDATE alerts SET status = 'RESOLVED' WHERE is_active = 0;
+            """)
 
         # Seed with sample data if empty
         count = conn.execute("SELECT COUNT(*) FROM incidents").fetchone()[0]
@@ -146,10 +226,10 @@ def create_incident(data: dict) -> int:
     with get_connection() as conn:
         cursor = conn.execute("""
             INSERT INTO incidents (latitude, longitude, species, call_type, confidence,
-                audio_filename, reporter_name, reporter_contact, description, severity, status)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                audio_filename, reporter_name, reporter_contact, description, severity, status, source, risk_score, risk_reason)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
-            data['latitude'], data['longitude'],
+            data.get('latitude'), data.get('longitude'),
             data.get('species', 'Elephant'),
             data.get('call_type'),
             data.get('confidence'),
@@ -159,6 +239,9 @@ def create_incident(data: dict) -> int:
             data.get('description'),
             data.get('severity', 'medium'),
             data.get('status', 'reported'),
+            data.get('source', 'MANUAL_REPORT'),
+            data.get('risk_score'),
+            data.get('risk_reason'),
         ))
         return cursor.lastrowid
 
@@ -199,7 +282,7 @@ def get_all_incidents(limit=100, offset=0, severity=None, status=None,
 def update_incident(incident_id: int, data: dict) -> bool:
     """Update an existing incident."""
     allowed_fields = ['latitude', 'longitude', 'species', 'call_type', 'confidence',
-                      'description', 'severity', 'status', 'reporter_name']
+                      'description', 'severity', 'status', 'reporter_name', 'risk_score', 'risk_reason']
     updates = []
     values = []
 
@@ -258,6 +341,8 @@ def get_incidents_geojson(call_type=None, severity=None) -> dict:
                 "description": inc['description'],
                 "reporter": inc['reporter_name'],
                 "created_at": inc['created_at'],
+                "risk_score": inc.get('risk_score'),
+                "risk_reason": inc.get('risk_reason'),
             }
         }
         features.append(feature)
@@ -300,9 +385,15 @@ def get_stats() -> dict:
 
 def get_active_alerts() -> list:
     """Get all active alerts."""
+    from datetime import datetime
     with get_connection() as conn:
+        # Auto-expire alerts
+        conn.execute(
+            "UPDATE alerts SET status = 'EXPIRED', is_active = 0 WHERE status = 'ACTIVE' AND expires_at < ?",
+            (datetime.now().isoformat(),)
+        )
         rows = conn.execute(
-            "SELECT * FROM alerts WHERE is_active = 1 ORDER BY created_at DESC"
+            "SELECT * FROM alerts WHERE status = 'ACTIVE' ORDER BY created_at DESC"
         ).fetchall()
         return [dict(row) for row in rows]
 
@@ -312,8 +403,8 @@ def create_alert(data: dict) -> int:
     with get_connection() as conn:
         cursor = conn.execute("""
             INSERT INTO alerts (incident_id, alert_type, message, latitude, longitude,
-                radius_km, is_active)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+                radius_km, is_active, status, expires_at, risk_level, risk_score)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
             data.get('incident_id'),
             data.get('alert_type', 'warning'),
@@ -322,15 +413,19 @@ def create_alert(data: dict) -> int:
             data.get('longitude'),
             data.get('radius_km', 5.0),
             data.get('is_active', 1),
+            data.get('status', 'ACTIVE'),
+            data.get('expires_at'),
+            data.get('risk_level'),
+            data.get('risk_score')
         ))
         return cursor.lastrowid
 
 
 def dismiss_alert(alert_id: int) -> bool:
-    """Dismiss (deactivate) an alert."""
+    """Dismiss (resolve) an alert."""
     with get_connection() as conn:
         cursor = conn.execute(
-            "UPDATE alerts SET is_active = 0 WHERE id = ?", (alert_id,)
+            "UPDATE alerts SET is_active = 0, status = 'RESOLVED' WHERE id = ?", (alert_id,)
         )
         return cursor.rowcount > 0
 

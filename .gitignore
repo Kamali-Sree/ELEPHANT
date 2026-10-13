@@ -14,25 +14,35 @@ __pycache__/
 *.so
 
 # Data and Models
-data/
-models/
-results/
-temp_audio.wav
-
-# Track village polygon cutout pipeline outputs
+data/*
 !data/village_polygon_cutouts/
-!data/village_polygon_cutouts/annotations/
-!data/village_polygon_cutouts/annotations/*.json
-!data/village_polygon_cutouts/outputs/
-!data/village_polygon_cutouts/outputs/*.png
-!data/village_polygon_cutouts/outputs/*.jpg
-!data/village_polygon_cutouts/outputs/*.json
-!data/village_polygon_cutouts/outputs/README.txt
-!data/village_polygon_cutouts/annotations/README.txt
+!data/settlement_outlines/
+!data/Seven Villages/
+!data/elephant_observations.geojson
+!data/ml_inventory.json
+!data/dataset_index.csv
+!data/scaled_dataset_index.csv
+!data/SINGANALLUR_2017-11_S2_fused_view.tif
 
-# Track results that belong to the cutout pipeline
+# Exclude giant datasets and raw archives (>100MB / raw audio)
+data/*.zip
+data/*.shp
+data/*.dbf
+data/*.sbn
+data/*.sbx
+data/Audio-Classification-for-Elephant-Sounds/
+data/scaled_dataset/
+data/acoustic_features/
+
+# Track trained models and evaluation outputs
+!models/
+!models/**
+
+# Track results and reports
 !results/
-!results/village_polygon_cutout_validation.json
+!results/**
+
+temp_audio.wav
 
 # IDEs
 .vscode/

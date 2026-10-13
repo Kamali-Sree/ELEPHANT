@@ -1,0 +1,37 @@
+============================================================
+DATA LEAKAGE TEST REPORT
+============================================================
+
+Model: models/best_model_v2.pth
+Dataset: data\scaled_dataset_index.csv
+
+Full test set (400 samples):
+  Accuracy: 82.50%
+              precision    recall  f1-score   support
+
+        Roar       0.73      0.63      0.68       100
+      Rumble       0.80      0.90      0.85       100
+     Trumpet       0.76      0.77      0.77       100
+Non_Elephant       1.00      1.00      1.00       100
+
+    accuracy                           0.82       400
+   macro avg       0.82      0.82      0.82       400
+weighted avg       0.82      0.82      0.82       400
+
+
+Original-only test set (58 samples):
+  Accuracy: 84.48%
+              precision    recall  f1-score   support
+
+        Roar       0.77      0.67      0.71        15
+      Rumble       0.81      0.93      0.87        14
+     Trumpet       0.77      0.77      0.77        13
+Non_Elephant       1.00      1.00      1.00        16
+
+    accuracy                           0.84        58
+   macro avg       0.84      0.84      0.84        58
+weighted avg       0.84      0.84      0.84        58
+
+
+Accuracy difference: -1.98%
+Verdict: ✅ NO significant data leakage detected. The model generalises well.

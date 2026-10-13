@@ -1,0 +1,72 @@
+[
+    {
+        "settlement": "Kondanur",
+        "source_image": "kodanur.png",
+        "image_size": [
+            1362,
+            775
+        ],
+        "mask_file": "kodanur_mask.png",
+        "transparent_file": "kodanur_transparent.png",
+        "preview_file": "kodanur_preview.png",
+        "built_up_pixel_count": 15051,
+        "georeferenced": false,
+        "status": "Mask generated. Lacks ground control points for spatial projection."
+    },
+    {
+        "settlement": "Pudur",
+        "source_image": "pudur.png",
+        "image_size": [
+            927,
+            586
+        ],
+        "mask_file": "pudur_mask.png",
+        "transparent_file": "pudur_transparent.png",
+        "preview_file": "pudur_preview.png",
+        "built_up_pixel_count": 4208,
+        "georeferenced": false,
+        "status": "Mask generated. Lacks ground control points for spatial projection."
+    },
+    {
+        "settlement": "Panapalli",
+        "source_image": "panapalli.png",
+        "image_size": [
+            1350,
+            777
+        ],
+        "mask_file": "panapalli_mask.png",
+        "transparent_file": "panapalli_transparent.png",
+        "preview_file": "panapalli_preview.png",
+        "built_up_pixel_count": 1233,
+        "georeferenced": false,
+        "status": "Mask generated. Lacks ground control points for spatial projection."
+    },
+    {
+        "settlement": "Kandivalli / Kandivazhi",
+        "source_image": "kandivazhi.png",
+        "image_size": [
+            1420,
+            781
+        ],
+        "mask_file": "kandivazhi_mask.png",
+        "transparent_file": "kandivazhi_transparent.png",
+        "preview_file": "kandivazhi_preview.png",
+        "built_up_pixel_count": 15176,
+        "georeferenced": false,
+        "status": "Mask generated. Lacks ground control points for spatial projection."
+    },
+    {
+        "settlement": "Sembukarai",
+        "source_image": "sembukarai.png",
+        "image_size": [
+            1337,
+            842
+        ],
+        "mask_file": "sembukarai_mask.png",
+        "transparent_file": "sembukarai_transparent.png",
+        "preview_file": "sembukarai_preview.png",
+        "built_up_pixel_count": 9329,
+        "georeferenced": false,
+        "status": "Mask generated. Lacks ground control points for spatial projection."
+    }
+]

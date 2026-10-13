@@ -1,0 +1,18 @@
+{
+    "observation_data_status": "Simulated",
+    "simulated_count": 171,
+    "real_count": 0,
+    "red_corridor_status": "Blocked by Python Execution Permissions",
+    "study_area_status": "Found in maconflic-study-area.json",
+    "geographic_alignment_status": "Needs update to new BBox: [[11.07, 76.68], [11.16, 76.79]]",
+    "kde_status": "Python script failed to run",
+    "sam2_execution_status": "Simulated Proxy Only (Not Executed)",
+    "settlement_segmentation_status": "Missing actual output images due to proxy execution",
+    "georeferencing_status": "False",
+    "frontend_status": "UI works but requires updated wording to reflect simulated data",
+    "remaining_blockers": [
+        "Need permission to run Python for generating the raster images",
+        "Need true historical movement dataset",
+        "Need SAM2 weights and execution environment"
+    ]
+}

@@ -1,0 +1,26 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "MACONFLIC Study Area",
+        "type": "study_area"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [76.680, 11.090],
+            [76.720, 11.070],
+            [76.780, 11.090],
+            [76.790, 11.140],
+            [76.740, 11.160],
+            [76.690, 11.140],
+            [76.680, 11.090]
+          ]
+        ]
+      }
+    }
+  ]
+}

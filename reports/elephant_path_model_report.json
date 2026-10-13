@@ -1,0 +1,22 @@
+{
+    "historical_observation_count": 171,
+    "source": "maconflic.db incidents table",
+    "spatial_extent": {
+        "min_lat": 10.6,
+        "max_lat": 11.2,
+        "min_lon": 76.5,
+        "max_lon": 77.1
+    },
+    "algorithm": "Heuristic Spatial Connectivity (Gaussian KDE proxy)",
+    "environmental_features_used": [
+        "distance to historical observations"
+    ],
+    "is_ml_prediction": false,
+    "is_spatial_heuristic": true,
+    "validation_status": "Awaiting georeferenced environmental variables for true supervised ML.",
+    "missing_datasets": [
+        "GPS collar tracks",
+        "Forest cover boundary masks",
+        "DEM/Elevation"
+    ]
+}

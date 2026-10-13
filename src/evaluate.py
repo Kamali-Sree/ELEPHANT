@@ -9,10 +9,10 @@ import matplotlib.pyplot as plt
 
 try:
     from src.features import ElephantAcousticDataset
-    from src.model import ElephantCNN, NUM_CLASSES, CLASS_NAMES
+    from src.model_v2 import ElephantCNNv2 as ElephantCNN, NUM_CLASSES, CLASS_NAMES
 except ImportError:
     from features import ElephantAcousticDataset
-    from model import ElephantCNN, NUM_CLASSES, CLASS_NAMES
+    from model_v2 import ElephantCNNv2 as ElephantCNN, NUM_CLASSES, CLASS_NAMES
 
 
 def evaluate_model(data_path, model_path):
@@ -96,6 +96,8 @@ def evaluate_model(data_path, model_path):
     print("=" * 60)
 
 if __name__ == '__main__':
-    csv_path = r"c:\Users\kamal\Downloads\MACONFLIC-main\elephant_vocalization_detection\data\scaled_dataset_index.csv"
-    model_path = r"c:\Users\kamal\Downloads\MACONFLIC-main\elephant_vocalization_detection\models\baseline_cnn.pth"
+    csv_path = os.path.join("data", "scaled_dataset_index.csv")
+    model_path = os.path.join("models", "best_model_v2.pth")
+    if not os.path.exists(model_path):
+        model_path = os.path.join("models", "baseline_cnn_v2.pth")
     evaluate_model(csv_path, model_path)

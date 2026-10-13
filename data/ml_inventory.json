@@ -1,0 +1,57 @@
+[
+    {
+        "filename": "kandivazhi.png",
+        "format": "PNG",
+        "width": null,
+        "height": null,
+        "channels": 3,
+        "exif": false,
+        "georeferenced": false,
+        "geographic_extent": null,
+        "size_bytes": 1750067
+    },
+    {
+        "filename": "kodanur.png",
+        "format": "PNG",
+        "width": null,
+        "height": null,
+        "channels": 3,
+        "exif": false,
+        "georeferenced": false,
+        "geographic_extent": null,
+        "size_bytes": 1737064
+    },
+    {
+        "filename": "panapalli.png",
+        "format": "PNG",
+        "width": null,
+        "height": null,
+        "channels": 3,
+        "exif": false,
+        "georeferenced": false,
+        "geographic_extent": null,
+        "size_bytes": 1640681
+    },
+    {
+        "filename": "pudur.png",
+        "format": "PNG",
+        "width": null,
+        "height": null,
+        "channels": 3,
+        "exif": false,
+        "georeferenced": false,
+        "geographic_extent": null,
+        "size_bytes": 927453
+    },
+    {
+        "filename": "sembukarai.png",
+        "format": "PNG",
+        "width": null,
+        "height": null,
+        "channels": 3,
+        "exif": false,
+        "georeferenced": false,
+        "geographic_extent": null,
+        "size_bytes": 1907652
+    }
+]

@@ -1,0 +1,109 @@
+{
+  "settlements": [
+    {
+      "name": "Kondanur",
+      "candidates": [
+        {
+          "latitude": 11.1042,
+          "longitude": 76.7730,
+          "source": "google_search_approx",
+          "status": "rejected_generic_centroid"
+        }
+      ],
+      "research_evidence": "Referenced in property listings as 'Kondanur, Anaikatti Post'. Shares generic Anaikatti centroid.",
+      "osm_status": "API 403 Forbidden - Could not query Nominatim.",
+      "distance_analysis": "N/A - Only generic centroid available.",
+      "verification_status": "pending_manual_ground_truth"
+    },
+    {
+      "name": "Pudur",
+      "candidates": [
+        {
+          "latitude": 11.1300,
+          "longitude": 76.7700,
+          "source": "google_search_approx",
+          "status": "candidate"
+        }
+      ],
+      "research_evidence": "Common suffix. Associated with landmarks like Fire Fly Farm and Ranganathapuram Check Dam near Anaikatti ghat roads.",
+      "osm_status": "API 403 Forbidden",
+      "distance_analysis": "N/A",
+      "verification_status": "pending_manual_ground_truth"
+    },
+    {
+      "name": "Panapalli",
+      "candidates": [
+        {
+          "latitude": 11.09305,
+          "longitude": 76.78808,
+          "source": "research_wildlife_corridor",
+          "status": "candidate_strong"
+        }
+      ],
+      "research_evidence": "Wildlife Trust of India elephant corridor data points to 11°05′35.0″N 76°47′17.1″E.",
+      "osm_status": "API 403 Forbidden",
+      "distance_analysis": "N/A",
+      "verification_status": "pending_manual_ground_truth"
+    },
+    {
+      "name": "Kandivalli",
+      "candidates": [
+        {
+          "latitude": 11.1000,
+          "longitude": 76.8000,
+          "source": "google_search_approx",
+          "status": "rejected_highly_approximate"
+        }
+      ],
+      "research_evidence": "Noted near local resorts (Greece in Blue). Frequent naming collision with Kandivali, Mumbai. No precise public coordinate found.",
+      "osm_status": "API 403 Forbidden",
+      "distance_analysis": "N/A",
+      "verification_status": "pending_manual_ground_truth"
+    },
+    {
+      "name": "Sembukarai",
+      "candidates": [
+        {
+          "latitude": 11.1300,
+          "longitude": 76.7500,
+          "source": "google_search_approx",
+          "status": "candidate"
+        }
+      ],
+      "research_evidence": "Well-documented trekking base for Perumal Mudi (Ramar Mudi). Located approx 5km from Anaikatti road near Mangarai checkpost.",
+      "osm_status": "API 403 Forbidden",
+      "distance_analysis": "N/A",
+      "verification_status": "pending_manual_ground_truth"
+    },
+    {
+      "name": "Dhoomanur",
+      "candidates": [
+        {
+          "latitude": 11.1042,
+          "longitude": 76.7730,
+          "source": "google_search_approx",
+          "status": "rejected_generic_centroid"
+        }
+      ],
+      "research_evidence": "Trekking destination near Sembukarai. Resolves only to generic Anaikatti centroid.",
+      "osm_status": "API 403 Forbidden",
+      "distance_analysis": "N/A",
+      "verification_status": "pending_manual_ground_truth"
+    },
+    {
+      "name": "Thuvaipathy",
+      "candidates": [
+        {
+          "latitude": 11.1200,
+          "longitude": 76.7800,
+          "source": "research_nature_park",
+          "status": "candidate_strong"
+        }
+      ],
+      "research_evidence": "Confirmed site of the Nilgiri Biosphere Nature Park.",
+      "osm_status": "API 403 Forbidden",
+      "distance_analysis": "N/A",
+      "verification_status": "pending_manual_ground_truth"
+    }
+  ]
+}

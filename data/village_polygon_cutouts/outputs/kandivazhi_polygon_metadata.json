@@ -1,0 +1,19 @@
+{
+  "village": "kandivazhi",
+  "source_image": "kandivazhi.png",
+  "image_size": [
+    1420,
+    781
+  ],
+  "vertex_count": 150,
+  "annotation_file": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\annotations\\kandivazhi_polygon.json",
+  "annotation_method": "auto_organic_terrain_edge",
+  "annotated_at": "2026-10-12T23:44:11",
+  "processed_at": "2026-10-12T23:44:17",
+  "outputs": {
+    "mask": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\kandivazhi_polygon_mask.png",
+    "cutout": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\kandivazhi_polygon_cutout.png",
+    "outline": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\kandivazhi_polygon_outline.png",
+    "preview": "C:\\Users\\hakki\\Kamali-MA\\ELEPHANT\\data\\village_polygon_cutouts\\outputs\\kandivazhi_polygon_preview.jpg"
+  }
+}
