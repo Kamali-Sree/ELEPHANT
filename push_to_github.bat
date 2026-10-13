@@ -19,7 +19,7 @@ git status --short
 echo.
 
 echo [3/4] Creating commit...
-git commit -m "feat: complete elephant conflict monitoring system with models, satellite map, alert/risk engines, and analysis pipeline"
+git commit -m "docs: comprehensive system documentation, architecture, and module guide"
 echo.
 
 echo [4/4] Pushing branch 'feature/elephant-system' to GitHub...
